@@ -15,8 +15,12 @@ def save_data(data):
         json.dump(data, file, indent=4)
 
 # Tools
-def starter():
+
+def screen():
     os.system('clear')
+
+def starter():
+    screen()
     print("Starting Bank Simulation v2.0...\n")
     t.sleep(1)
     
@@ -25,15 +29,15 @@ def starter():
         progress = "█" * i + "-" * (50 - i)
         print(f"[{progress}] {i * 2}%")
         t.sleep(0.03)
-        os.system('clear')
+        screen()
     
     print("System Initialized Successfully!")
     t.sleep(1)
-    os.system('clear')
+    screen()
 
 
 def shutdown():
-    os.system('clear')
+    screen()
     print("Shutting Down Bank Simulation v2.0...\n")
     t.sleep(1)
     
@@ -42,14 +46,12 @@ def shutdown():
     for i in range(len(message), 0, -1):
         print(message[:i])
         t.sleep(0.05)
-        os.system('clear')
+        screen()
     
     print("System Powered Off.")
     t.sleep(1)
-    os.system('clear')
+    screen()
     
-def screen():
-    os.system('clear')
 
 class Bank:
     def __init__(self, username, name, surname, age, balance=0.0):
