@@ -14,6 +14,43 @@ def save_data(data):
     with open('data.json', 'w') as file:
         json.dump(data, file, indent=4)
 
+# Tools
+def starter():
+    os.system('clear')
+    print("Starting Bank Simulation v2.0...\n")
+    t.sleep(1)
+    
+    # Progress Bar Animation
+    for i in range(51):
+        progress = "█" * i + "-" * (50 - i)
+        print(f"[{progress}] {i * 2}%")
+        t.sleep(0.03)
+        os.system('clear')
+    
+    print("System Initialized Successfully!")
+    t.sleep(1)
+    os.system('clear')
+
+
+def shutdown():
+    os.system('clear')
+    print("Shutting Down Bank Simulation v2.0...\n")
+    t.sleep(1)
+    
+    # Fade-Out Text Effect
+    message = "Goodbye! All banking details have been securely saved."
+    for i in range(len(message), 0, -1):
+        print(message[:i])
+        t.sleep(0.05)
+        os.system('clear')
+    
+    print("System Powered Off.")
+    t.sleep(1)
+    os.system('clear')
+    
+def screen():
+    os.system('clear')
+
 class Bank:
     def __init__(self, username, name, surname, age, balance=0.0):
         self.username = username
@@ -87,16 +124,22 @@ def login_or_signup():
         return login_or_signup()
 
 def main():
+    starter()
     user = login_or_signup()
+    t.sleep(1.5)
+    screen()
     while True:
         print("\n 1) Deposit     2) Statement     3) Withdraw     4) Logout")
         choice = input(f" {user.name} ~>@ ").strip()
         if choice == "1":
+            screen()
             amount = float(input("Enter amount to deposit: "))
             user.deposit(amount)
         elif choice == "2":
+            screen()
             user.statement()
         elif choice == "3":
+            screen()
             amount = float(input("Enter amount to withdraw: "))
             user.withdraw(amount)
         elif choice == "4":
@@ -110,6 +153,7 @@ def main():
                 "balance": user.balance
             }
             save_data(data)
+            shutdown
             break
         else:
             print("\n Invalid input. Please try again.")
