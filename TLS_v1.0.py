@@ -25,9 +25,14 @@ road = road()
 traffic = road.lights()
 
 def run():
+
     while 1:
-        traffic["green"]()
-        traffic["yellow"]()
-        traffic["red"]()
+        try:
+            traffic["green"]()
+            traffic["yellow"]()
+            traffic["red"]()
+        except KeyboardInterrupt:
+            print(" TLS stopping...")
+            clear()
 
 run()
