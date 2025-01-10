@@ -17,7 +17,7 @@ def save_data(data):
 # Tools
 
 def screen():
-    os.system('clear')
+    os.system('cls' if so.name == 'nt' else 'clear')
 
 def starter():
     screen()
