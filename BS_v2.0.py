@@ -155,7 +155,7 @@ def main():
                 "balance": user.balance
             }
             save_data(data)
-            shutdown
+            shutdown()
             break
         else:
             print("\n Invalid input. Please try again.")
